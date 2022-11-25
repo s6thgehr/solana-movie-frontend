@@ -1,2 +1,2 @@
 export const MOVIE_REVIEW_PROGRAM_ID =
-    "Apo8X6RR5j6QKNfjvLMyup7CRnoeU5a5ahJ1619YDUnF";
+    "5DSVzTwohaA96NRSxQWKj8Qd2PqX8BQEo7SXkhrmTWLw";
