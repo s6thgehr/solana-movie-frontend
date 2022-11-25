@@ -77,7 +77,7 @@ export class Movie {
     serialize(instruction: number): Buffer {
         const buffer = Buffer.alloc(1000);
         this.borshInstructionSchema.encode(
-            { ...this, variant: instruction },
+            { variant: instruction, ...this },
             buffer
         );
         return buffer.slice(0, this.borshInstructionSchema.getSpan(buffer));
