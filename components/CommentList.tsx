@@ -6,24 +6,24 @@ import {
     Stack,
     Box,
     Heading,
-} from "@chakra-ui/react"
-import { FC, useState, useEffect } from "react"
-import { CommentCoordinator } from "../coordinators/CommentCoordinator"
-import { Movie } from "../models/Movie"
-import { Comment } from "../models/Comment"
-import * as web3 from "@solana/web3.js"
-import { useConnection } from "@solana/wallet-adapter-react"
+} from "@chakra-ui/react";
+import { FC, useState, useEffect } from "react";
+import { CommentCoordinator } from "../coordinators/CommentCoordinator";
+import { Movie } from "../models/Movie";
+import { Comment } from "../models/Comment";
+import * as web3 from "@solana/web3.js";
+import { useConnection } from "@solana/wallet-adapter-react";
 
 interface CommentListProps {
-    movie: Movie
+    movie: Movie;
 }
 
 export const CommentList: FC<CommentListProps> = ({
     movie,
 }: CommentListProps) => {
-    const { connection } = useConnection()
-    const [page, setPage] = useState(1)
-    const [comments, setComments] = useState<Comment[]>([])
+    const { connection } = useConnection();
+    const [page, setPage] = useState(1);
+    const [comments, setComments] = useState<Comment[]>([]);
 
     useEffect(() => {
         const fetch = async () => {
@@ -33,12 +33,12 @@ export const CommentList: FC<CommentListProps> = ({
                     review,
                     page,
                     3
-                )
-                setComments(comments)
-            })
-        }
-        fetch()
-    }, [page])
+                );
+                setComments(comments);
+            });
+        };
+        fetch();
+    }, [page]);
 
     return (
         <div>
@@ -75,5 +75,5 @@ export const CommentList: FC<CommentListProps> = ({
                 </Center>
             </Stack>
         </div>
-    )
-}
+    );
+};

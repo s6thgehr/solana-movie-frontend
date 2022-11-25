@@ -1,10 +1,10 @@
-import { Box, HStack, Spacer, Stack, Text } from "@chakra-ui/react"
-import { FC } from "react"
-import { Movie } from "../models/Movie"
+import { Box, HStack, Spacer, Stack, Text } from "@chakra-ui/react";
+import { FC } from "react";
+import { Movie } from "../models/Movie";
 
 export interface CardProps {
-    movie: Movie
-    onClick: () => void
+    movie: Movie;
+    onClick: () => void;
 }
 
 export const Card: FC<CardProps> = (props) => {
@@ -46,5 +46,5 @@ export const Card: FC<CardProps> = (props) => {
                 </Text>
             </Stack>
         </Box>
-    )
-}
+    );
+};

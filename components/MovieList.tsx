@@ -1,7 +1,7 @@
-import { Card } from "./Card"
-import { FC, useEffect, useMemo, useState } from "react"
-import { Movie } from "../models/Movie"
-import { MovieCoordinator } from "../coordinators/MovieCoordinator"
+import { Card } from "./Card";
+import { FC, useEffect, useMemo, useState } from "react";
+import { Movie } from "../models/Movie";
+import { MovieCoordinator } from "../coordinators/MovieCoordinator";
 import {
     Button,
     Center,
@@ -9,18 +9,18 @@ import {
     Input,
     Spacer,
     Heading,
-} from "@chakra-ui/react"
-import { useDisclosure } from "@chakra-ui/react"
-import { ReviewDetail } from "./ReviewDetail"
-import { useConnection } from "@solana/wallet-adapter-react"
+} from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
+import { ReviewDetail } from "./ReviewDetail";
+import { useConnection } from "@solana/wallet-adapter-react";
 
 export const MovieList: FC = () => {
-    const { connection } = useConnection()
-    const [movies, setMovies] = useState<Movie[]>([])
-    const [page, setPage] = useState(1)
-    const [search, setSearch] = useState("")
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [selectedMovie, setSelectedMovie] = useState<Movie>(Movie.mocks[0])
+    const { connection } = useConnection();
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [page, setPage] = useState(1);
+    const [search, setSearch] = useState("");
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [selectedMovie, setSelectedMovie] = useState<Movie>(Movie.mocks[0]);
 
     useEffect(() => {
         MovieCoordinator.fetchPage(
@@ -29,13 +29,13 @@ export const MovieList: FC = () => {
             5,
             search,
             search !== ""
-        ).then(setMovies)
-    }, [page, search])
+        ).then(setMovies);
+    }, [page, search]);
 
     const handleReviewSelected = (movie: Movie) => {
-        setSelectedMovie(movie)
-        onOpen()
-    }
+        setSelectedMovie(movie);
+        onOpen();
+    };
 
     return (
         <div>
@@ -63,7 +63,7 @@ export const MovieList: FC = () => {
                     key={i}
                     movie={movie}
                     onClick={() => {
-                        handleReviewSelected(movie)
+                        handleReviewSelected(movie);
                     }}
                 />
             ))}
@@ -81,5 +81,5 @@ export const MovieList: FC = () => {
                 </HStack>
             </Center>
         </div>
-    )
-}
+    );
+};

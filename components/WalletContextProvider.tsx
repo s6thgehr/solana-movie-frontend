@@ -15,7 +15,8 @@ const ReactUIWalletModalProviderDynamic = dynamic(
 );
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-    const endpoint = web3.clusterApiUrl("devnet");
+    // const endpoint = web3.clusterApiUrl("devnet");
+    const endpoint = "http://127.0.0.1:1027";
     const wallets = useMemo(() => {
         return [
             new walletAdapterWallets.PhantomWalletAdapter(),
